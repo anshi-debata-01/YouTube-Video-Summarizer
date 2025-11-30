@@ -1,0 +1,12 @@
+streamlit
+youtube-transcript-api
+google-generativeai
+python-dotenv
+pathlib
+nltk
+langchain
+langchain-groq
+langchain-text-splitters
+groq
+tiktoken
+

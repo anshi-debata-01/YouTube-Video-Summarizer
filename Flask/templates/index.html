@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>YouTube Summarizer</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">🎬 YouTube Video Summarizer</h1>
+
+        <!-- Input Box -->
+        <form method="POST" class="input-box">
+            <input type="text" name="video_url" placeholder="Paste YouTube URL here..." required class="input-field">
+
+            <button type="submit" class="btn summarize-btn">🚀 Summarize</button>
+        </form>
+
+        <!-- Error Message -->
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <!-- Transcript -->
+        {% if transcript %}
+        <div class="section">
+            <h2>📄 Transcript</h2>
+            <div class="content-box">{{ transcript }}</div>
+        </div>
+        {% endif %}
+
+        <!-- Cleaned Text -->
+        {% if clean_text %}
+        <div class="section">
+            <h2>🧹 Cleaned Text</h2>
+            <div class="content-box">{{ clean_text }}</div>
+        </div>
+        {% endif %}
+
+        <!-- Summary -->
+        {% if summary %}
+        <div class="section">
+            <h2>📌 Summary</h2>
+            <div class="content-box">{{ summary }}</div>
+
+            <a href="/download">
+                <button class="btn download">⬇️ Download Summary</button>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
